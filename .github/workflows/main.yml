@@ -1,0 +1,16 @@
+name: Hello World Every 5 Minutes
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World With Telegram Message
+        uses: appleboy/telegram-action@master
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          to: ${{ secrets.TELEGRAM_TO_ID }}
+          message: echo "Hello World"
